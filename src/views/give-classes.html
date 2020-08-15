@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proffy | Sua plataforma de estudos online</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/partials/header.css"> <!-- Import do estilo do heaer-->
+    <link rel="stylesheet" href="style/partials/page-give-classes.css">
+    <link rel="stylesheet" href="style/partials/forms.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap"
+        rel="stylesheet">
+
+    <script src="script/addField.js" defer></script> <!--Defer é utilizado para ler o script após ler e renderizae tudo da página-->
+</head>
+
+<body id="page-give-classes">
+
+    <div id="container">
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/">
+                    <img src="images/icons/back.svg" alt="Voltar">
+                </a>
+                <img src="images/logo.svg" alt="Proffy">
+            </div>
+
+            <div class="header-content">
+                <strong>Que incrível que você quer dar aulas</strong>
+                <p>O primeiro passo, é preencher esse formulário de inscrição.</p>
+
+            </div>
+        </header>
+
+        <main>
+            <!-- Conteúdo principal da página.-->
+            <form action="/save-classes" id="create-class" method="POST">
+
+                <fieldset> <!--Seus dados-->
+                    <!--Todo formulário precisa de um fieldset-->
+                    <legend>Seus dados</legend>
+                    <!--"Legenda"-->
+
+                    <div class="input-block">
+                        <label for="name">Seu completo</label>
+                        <input type="text" name="name" id="name" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="avatar">Link da sua foto <small>(comece com https://)</small></label>
+                        <input type="url" name="avatar" id="avatar" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="whatsapp">WhatsApp <small>(somente número)</small></label>
+                        <input type="number" name="whatsapp" id="whatsapp" required>
+                    </div>
+
+                    <div class="textarea-block">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio" id="bio" required></textarea>
+                    </div>
+
+                </fieldset>
+
+                <fieldset> <!-- Sobre a aula-->
+                    <legend>Sobre a aula</legend>
+                    <div class='select-block'>
+                        <label for="subjetct">Matéria</label>
+                        <select name="subject" id="subject" required>
+                            <option value="">Selecione uma opção</option>
+                            <option value="1">Artes</option>
+                            <option value="2">Biologia</option>
+                            <option value="3">Ciências</option>
+                            <option value="4">Educação física</option>
+                            <option value="5">Física</option>
+                            <option value="6">Geografia</option>
+                            <option value="7">História</option>
+                            <option value="8">Matemática</option>
+                            <option value="9">Português</option>
+                            <option value="10">Química</option>
+                        </select>
+                    </div>
+
+                    <div class='input-block'>
+                        <label for="cost">Custo da sua hora/aula
+                            <small>(R$)</small>
+                        </label>
+                        <input type="number" name="cost" id="cost" required>
+                    </div>
+                </fieldset>
+
+                <fieldset id='schedule-items'> <!--Horários Disponíveis-->
+                    <legend>Horários disponíveis
+                        <button type='button' id='add-time'>+ Novo Horário</button> <!--Adicionar o type button, se não ele fica querendo submeter o formulário-->
+                    </legend>
+
+                    <div class="schedule-item">
+
+                        <div class="select-block">
+                            <label for="weekday">Dia da semana</label>
+                            <select name="weekday[]" required>
+                                <option value="">Selecione uma opção</option>
+                                <option value="0">Domingo</option>
+                                <option value="1">Segunda-feira</option>
+                                <option value="2">Terça-feira</option>
+                                <option value="3">Quarta-feira</option>
+                                <option value="4">Quinta-feira</option>
+                                <option value="5">Sexta-feira</option>
+                                <option value="6">Sábado</option>
+                            </select>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_from">Das</label>
+                            <input type="time" name="time_from[]" required>
+                        </div>
+
+                        <div class="input-block">
+                            <label for="time_to">Até</label>
+                            <input type="time" name="time_to[]" required>
+                        </div>
+
+                    </div>
+                </fieldset>
+
+                <footer>
+                    <p>
+                        <img src="images/icons/warning.svg" alt="Aviso Importante">
+                        Importante! <br> Preencha todos os dados
+                    </p>
+                    <button type='submit' form='create-class'>Salvar cadastro</button> <!--Submit e form(id do form para enviar(o formulário)-->
+                </footer>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

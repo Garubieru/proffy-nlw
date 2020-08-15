@@ -1,0 +1,65 @@
+:root {
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842C2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: white;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: white;
+    --color-box-base: white;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+    font-size: 60%; /* Contole das medidas rem(Relativo ao root element) */
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Significa que medirá a caixa a partir de sua borda(width) - mantém a largura da caixa constante, não altera a largura em função do conteúdo. */
+}
+
+html, 
+body {
+    height: 100vh; /* Quebre a página em 100 pedacinhos na altura, afeta toda visao do documento.*/
+}
+
+body {
+    background: var(--color-background);
+    display: flex; /* Não é possível utilizar o align-itens e o justify sem o display flex(tira a quebra de linha entre os elementos.*/
+    align-items: center; /* Coloca o conteúdo no meio da página (50vh) segundo o height definido na página.*/
+    justify-content: center; /* Só centraliza.*/
+}
+
+
+body,
+input, 
+button,
+textarea {
+    /* font: 500 1.6rem Poppins; */
+    font-weight: 500;
+    font-size: 1.6rem;
+    font-family: Poppins;
+    color: var(--color-text-base);
+}
+
+#container {
+    width: 90vw; /* view por width - largura de apenas 90 de 100 da da tela*/
+    max-width: 700px; /* Se passar, o maximo de largura é de 700 pixels */
+}
+
+@media (min-width: 700px) { /* Acima de 700px */
+    root {
+        font-size: 62.5%; /* todo 1rem vai ser relativo a 10px */
+    }
+}
